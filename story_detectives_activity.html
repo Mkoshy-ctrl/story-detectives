@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Story Detectives: Find the Clues!</title>
+<style>
+  :root { --navy:#17324d; --teal:#167d83; --gold:#f2bd4b; --paper:#fffdf7; --ink:#203040; --soft:#eaf4f3; }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family: "Trebuchet MS", Arial, sans-serif; background:linear-gradient(135deg,#edf5f5,#fff7e7); color:var(--ink); }
+  .page { max-width:1000px; margin:0 auto; padding:24px 16px 40px; }
+  header { background:var(--navy); color:white; border-radius:22px; padding:24px; position:relative; overflow:hidden; }
+  header:after { content:"🔎"; position:absolute; right:28px; top:18px; font-size:60px; opacity:.9; }
+  .eyebrow { text-transform:uppercase; letter-spacing:2px; font-size:.78rem; color:#f9d77f; font-weight:bold; }
+  h1 { margin:8px 75px 8px 0; font-size:clamp(1.8rem,4vw,2.7rem); }
+  header p { margin:0; max-width:700px; line-height:1.5; }
+  .team { display:flex; gap:12px; flex-wrap:wrap; margin:18px 0; }
+  .team label { font-weight:bold; }
+  .team input { border:1px solid #b7c8cf; border-radius:8px; padding:9px 10px; background:white; }
+  .card { background:var(--paper); border:2px solid #dce7e5; border-radius:18px; padding:20px; margin-top:18px; box-shadow:0 5px 16px #17324d0d; }
+  h2 { margin:0 0 8px; color:var(--navy); font-size:1.35rem; }
+  .instruction { margin:0 0 16px; line-height:1.55; }
+  .step { display:inline-block; background:var(--gold); color:#342b16; border-radius:8px; padding:5px 9px; font-weight:800; margin-right:7px; }
+  .extract { font-size:1.13rem; line-height:2.1; background:white; border:1px dashed #aac4c3; padding:18px; border-radius:14px; }
+  .phrase { border:0; font:inherit; color:inherit; background:transparent; cursor:pointer; border-radius:6px; padding:1px 3px; }
+  .phrase:hover { background:#fff1c7; }
+  .phrase.circled { outline:2px solid #d98b20; border-radius:999px; background:#fff2c8; }
+  .hint { font-size:.9rem; color:#526576; margin-top:10px; }
+  .legend { display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
+  .legend span { background:var(--soft); border-radius:999px; padding:6px 10px; font-size:.86rem; }
+  .labels { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:12px; margin-top:16px; }
+  .label-item { background:#f2f7f6; border-radius:12px; padding:12px; }
+  .label-item label { display:block; font-weight:bold; margin-bottom:7px; }
+  select, textarea { width:100%; border:1px solid #aabdc7; border-radius:9px; padding:10px; font:inherit; background:white; }
+  textarea { min-height:105px; resize:vertical; }
+  .actions { display:flex; gap:10px; flex-wrap:wrap; margin-top:16px; }
+  button.action { border:0; border-radius:10px; padding:11px 16px; font:inherit; font-weight:bold; cursor:pointer; }
+  .primary { background:var(--teal); color:white; }
+  .secondary { background:#e7edf0; color:var(--navy); }
+  .feedback { display:none; margin-top:14px; padding:13px; background:#e8f5e9; border-left:5px solid #338a53; border-radius:8px; line-height:1.5; }
+  .footer { text-align:center; margin-top:18px; font-size:.85rem; color:#637584; }
+  @media print { body { background:white; } .page { max-width:none; } .actions, .hint, .team { display:none; } .card, header { box-shadow:none; break-inside:avoid; } }
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <div class="eyebrow">Group Work · Grade 5 English</div>
+    <h1>Story Detectives: Find the Clues!</h1>
+    <p>Read the extract carefully. Work as a team to uncover the story elements and investigate the clue that creates suspense.</p>
+  </header>
+
+  <div class="team">
+    <label for="teamName">Detective team:</label>
+    <input id="teamName" type="text" placeholder="Enter your group name">
+  </div>
+
+  <section class="card">
+    <h2>🗂️ Activity 1: Read the extract</h2>
+    <p class="instruction"><span class="step">Step 1</span> Label the <strong>five story elements</strong> in the text. Select the best label for each element below.</p>
+    <div class="extract" aria-label="Story extract">
+      <button class="phrase" data-phrase="Omar was exploring" title="Click to circle descriptive language">Omar was exploring</button>
+      <button class="phrase" data-phrase="an ancient tree" title="Click to circle descriptive language">an ancient tree</button>
+      <button class="phrase" data-phrase="in his quiet Emirati neighbourhood" title="Click to circle descriptive language">in his quiet Emirati neighbourhood</button>
+      <button class="phrase" data-phrase="when he noticed something gleaming beneath the sand" title="Click to circle descriptive language">when he noticed something gleaming beneath the sand.</button>
+      <button class="phrase" data-phrase="Curious" title="Click to circle descriptive language">Curious,</button>
+      <button class="phrase" data-phrase="he brushed the sand away and discovered a mysterious key" title="Click to circle descriptive language">he brushed the sand away and discovered a mysterious key.</button>
+      <button class="phrase" data-phrase="Suddenly" title="Click to circle descriptive language">Suddenly,</button>
+      <button class="phrase" data-phrase="he heard a faint sound" title="Click to circle descriptive language">he heard a faint sound</button>
+      <button class="phrase" data-phrase="coming from behind the old tree" title="Click to circle descriptive language">coming from behind the old tree.</button>
+      <button class="phrase" data-phrase="Omar followed the sound" title="Click to circle descriptive language">Omar followed the sound</button>
+      <button class="phrase" data-phrase="and found a small wooden door hidden in the wall" title="Click to circle descriptive language">and found a small wooden door hidden in the wall.</button>
+    </div>
+    <p class="hint">Detective tip: To circle descriptive language, click a word or phrase in the extract. Click it again to remove the circle.</p>
+
+    <div class="labels">
+      <div class="label-item"><label for="setting">1. Setting — Where and when?</label><select id="setting"><option value="">Choose a clue from the extract…</option><option>Omar</option><option>an ancient tree in his quiet Emirati neighbourhood</option><option>a mysterious key</option><option>a faint sound</option><option>a small wooden door</option></select></div>
+      <div class="label-item"><label for="character">2. Character — Who is the story about?</label><select id="character"><option value="">Choose a clue from the extract…</option><option>Omar</option><option>his quiet Emirati neighbourhood</option><option>the mysterious key</option><option>the faint sound</option><option>the wooden door</option></select></div>
+      <div class="label-item"><label for="plot">3. Plot — What happens?</label><select id="plot"><option value="">Choose a clue from the extract…</option><option>Omar discovers a key, follows a sound and finds a door</option><option>the neighbourhood is quiet</option><option>Omar is curious</option><option>the door is wooden</option></select></div>
+      <div class="label-item"><label for="conflict">4. Conflict / Problem — What creates a problem or mystery?</label><select id="conflict"><option value="">Choose a clue from the extract…</option><option>Omar notices a gleaming object and hears a strange sound</option><option>Omar is exploring</option><option>the neighbourhood is Emirati</option><option>the door is small</option></select></div>
+      <div class="label-item"><label for="resolution">5. Resolution — How is the problem solved?</label><select id="resolution"><option value="">Choose the best answer…</option><option>Omar finds a small wooden door</option><option>Omar opens the door and discovers what is inside</option><option>The story gives no complete resolution yet</option><option>Omar returns home</option></select></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>🕵️ Step 2: Investigate the suspense clue</h2>
+    <p class="instruction">Identify the clue that creates suspense. Explain how it makes the reader want to know what happens next.</p>
+    <label for="suspense" style="font-weight:bold;display:block;margin-bottom:8px;">Our team's evidence and explanation:</label>
+    <textarea id="suspense" placeholder="The clue that creates suspense is… It makes the reader curious because…"></textarea>
+    <div class="actions">
+      <button class="action primary" onclick="checkWork()">Check our detective work</button>
+      <button class="action secondary" onclick="window.print()">Print activity</button>
+      <button class="action secondary" onclick="resetWork()">Start again</button>
+    </div>
+    <div class="feedback" id="feedback" role="status"></div>
+  </section>
+  <div class="footer">Think carefully. Use evidence from the text to support your ideas.</div>
+</div>
+<script>
+  document.querySelectorAll('.phrase').forEach(button => {
+    button.addEventListener('click', () => button.classList.toggle('circled'));
+  });
+  function checkWork() {
+    const fields = ['setting','character','plot','conflict','resolution'];
+    const unanswered = fields.filter(id => !document.getElementById(id).value).length;
+    const circled = document.querySelectorAll('.phrase.circled').length;
+    const response = document.getElementById('suspense').value.trim();
+    let message = `<strong>Detective check:</strong> You have labelled ${5-unanswered} of the 5 story elements and circled ${circled} word(s) or phrase(s). `;
+    if (unanswered) message += `Review the ${unanswered} label(s) you have not selected. `;
+    if (!response) message += `Add your explanation of how the suspense clue makes the reader curious.`;
+    else message += `Now check that your explanation names a specific clue and explains what the reader wants to find out.`;
+    if (document.getElementById('resolution').value === 'The story gives no complete resolution yet') message += ` <br><br><strong>Good thinking:</strong> The mystery is not fully resolved because we do not yet know what is behind the door.`;
+    const box = document.getElementById('feedback');
+    box.innerHTML = message;
+    box.style.display = 'block';
+  }
+  function resetWork() {
+    document.querySelectorAll('select').forEach(el => el.selectedIndex = 0);
+    document.querySelectorAll('.phrase').forEach(el => el.classList.remove('circled'));
+    document.getElementById('suspense').value = '';
+    document.getElementById('feedback').style.display = 'none';
+  }
+</script>
+</body>
+</html>
